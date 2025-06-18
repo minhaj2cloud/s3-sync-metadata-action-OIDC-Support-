@@ -1,0 +1,33 @@
+name: "S3 Sync Metadata (OIDC)"
+description: "Sync HTML files to an AWS S3 bucket with proper content-type using OIDC"
+author: minhaj2cloud
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: refresh-cw
+  color: green
+inputs:
+  args:
+    description: "Arguments to pass to aws s3 sync"
+    required: false
+    default: ""
+  source_dir:
+    description: "Source directory to sync"
+    required: false
+    default: "."
+  dest_dir:
+    description: "Destination directory in S3"
+    required: false
+    default: ""
+  aws_s3_bucket:
+    description: "Target S3 bucket"
+    required: true
+  content_type:
+    description: "Content-type to set for files"
+    required: false
+    default: "text/html"
+  exclude_pattern:
+    description: "File pattern to exclude"
+    required: false
+    default: "*.*"
