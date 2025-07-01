@@ -2,13 +2,13 @@
 set -e
 
 # GitHub Actions inputs are passed as environment variables with INPUT_ prefix
-if [ -z "$INPUT_AWS_S3_BUCKET" ]; then
+if [ -z "$AWS_S3_BUCKET" ]; then
   echo "Error: aws_s3_bucket input is not set. Quitting."
   exit 1
 fi
 
 # Use the input values from GitHub Actions
-AWS_S3_BUCKET="$INPUT_AWS_S3_BUCKET"
+AWS_S3_BUCKET="$AWS_S3_BUCKET"
 SOURCE_DIR="${INPUT_SOURCE_DIR:-.}"
 DEST_DIR="${INPUT_DEST_DIR}"
 ARGS="${INPUT_ARGS}"
